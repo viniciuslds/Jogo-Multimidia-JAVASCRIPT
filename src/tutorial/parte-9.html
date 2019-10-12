@@ -44,6 +44,7 @@
         var scoreText;
         var game = new Phaser.Game(config);
         var playerOther = prompt("Por favor digite seu NickName", "player 1")
+        var players;
 
         function preload() {
             this.load.image('sky', 'assets/sky.png');
@@ -55,9 +56,7 @@
         }
 
         function create() {
-            localStorage.setItem("NickName",  playerOther);
             this.add.image(400, 300, 'sky');
-
             platforms = this.physics.add.staticGroup();
 
             platforms.create(400, 568, 'ground').setScale(2).refreshBody();
@@ -164,14 +163,11 @@
             player.setTint(0xff0000);
             player.anims.play('turn');
             gameOver = true;
-        }
-        function players(playerOther) {
-            alert( "Nome de Usuário = " + localStorage.getItem("Por favor digite seu NickName") + scoreText);
+            players = playerOther + ' ' + score + '\n';
+            alert( "Nome de Usuário = " + players);
         }
     </script>
 
 
 
 </body>
-
-</html>
